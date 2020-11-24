@@ -1,0 +1,28 @@
+# Site settings
+title: "Ionuț's blog"
+email: ionut@mihalcea.dev
+description: "Never the post you were hoping for."
+baseurl: ""
+url: "https://blog.mihalcea.dev/"
+title_description: "Hi, welcome to my blog! My interests are quite varied so some titles will sound boring, but don't worry - <i>all</i> my posts disappoint."
+title_image: "https://en.gravatar.com/userimage/195589091/2be4a09b4c666e90453ab9b3661dfb59.png?size=200"
+github_repository: https://github.com/iamihalcea/iamihalcea.github.io
+post_limit: 5
+
+# Social usernames/URLs
+github_username: iamihalcea
+telegram_username: xenopht
+
+# Footer
+footer_left: 'Made with <i class="fa fa-heart"></i> using <a href="https://jekyllrb.com/">Jekyll</a> and <a href="https://github.com/jacobtomlinson/carte-noire">Carte Noir</a>'
+footer_right: '&lt;/&gt; on <a href="https://github.com/iamihalcea/iamihalcea.github.io">Github</a> &nbsp;<i class="fa fa-github-alt"></i>'
+
+# Build settings
+markdown: kramdown
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+permalink: pretty
+exclude: [vendor]
