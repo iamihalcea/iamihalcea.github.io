@@ -15,6 +15,8 @@ $stack-overflow: #c98b3b;
 $instagram:      #cd486b;
 $reddit:         #cee3f8;
 $rss:            #eea33a;
+$envelope:		 #BB001B;
+$telegram:		 #0088CC;
 
 $darker:         #21211E;
 $dark:           #2D2D29;
@@ -37,6 +39,27 @@ $screen-md-min: 992px;
 $screen-lg-min: 1200px;
 
 /* Globals */
+:root[colour-mode="dark"] {
+	--background: #2D2D29;
+	--background-plus: #21211E;
+	--background-blue: #215A6D;
+	--content-panel: #3B3B35;
+	--text: #FFFFFF;
+	--text-plus: #969696;
+	--text-blue: #215A6D;
+	--text-rev-blue: #3CA2A2;
+}
+
+:root[colour-mode="light"] {
+	--background: #d7dfdf;
+	--background-plus: white;
+	--background-blue: #3CA2A2;
+	--content-panel: #DFECE6;
+	--text: black;
+	--text-plus: #3B3B35;
+	--text-blue: #3CA2A2;
+	--text-rev-blue: #215A6D;
+}
 
 html {
 	height: 100%;
@@ -46,20 +69,20 @@ html {
 body {
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 300;
-	background-color: $dark;
-	color: $white;
+	background-color: var(--background);
+	color: var(--text);
 	font-size: 16px;
 	height: 100%;
-	width: 100%
+	width: 100%;
 }
 
 a, a:active {
-	color: $light-blue;
+	color: var(--text-rev-blue);
 	text-decoration: none;
 }
 
 a:hover {
-	color: $dark-blue;
+	color: var(--text-blue);
 	text-decoration: none;
 }
 
@@ -68,7 +91,7 @@ ul {
 }
 
 .navbar, .nav {
-	background-color: $dark-blue;
+	background-color: var(--background-blue);
 
 	.navbar-toggle {
 		margin-top: 10px;
@@ -79,11 +102,11 @@ ul {
 	li {
 
 		a, a:active {
-			color: $white;
+			color: var(--text);
 		}
 
 		a:hover {
-			color: $dark-blue;
+			color: var(--text-blue);
 			text-decoration: none;
 		}
 	}
@@ -111,15 +134,15 @@ ul {
 }
 
 .menu-button {
-	color: $white;
+	color: var(--text);
 	font-size: 24px;
-	position: fixed;
+	position: absolute;
 	top: 10px;
 	left: 20px;
 	cursor: pointer;
 	line-height: 1em;
 	padding: 10px;
-	background-color: $dark;
+	background-color: var(--background);
 	z-index: 100;
 	@media (min-width: $screen-sm-min) {
 		top: 20px;
@@ -127,8 +150,24 @@ ul {
 	}
 }
 
+.theme-button {
+	color: var(--text);
+	font-size: 24px;
+	position: absolute;
+	top: 10px;
+	right: 20px;
+	cursor: pointer;
+	line-height: 1em;
+	padding: 10px;
+	z-index: 100;
+	@media (min-width: $screen-sm-min) {
+		top: 20px;
+		right: 40px;
+	}
+}
+
 .content-panel {
-	background-color: $medium;
+	background-color: var(--content-panel);
 	padding-top: 20px;
 	padding-bottom: 20px;
 	padding-left: 30px;
@@ -139,17 +178,19 @@ ul {
 }
 
 #my-menu {
+	background-color: var(--background);
+	color: var(--text);
 
 	p {
 		margin-bottom: 5px;
 	}
 
 	a, a:active {
-		color: $white;
+		color: var(--text);
 	}
 
 	a:hover {
-		color: $light-blue;
+		color: var(--text-rev-blue);
 	}
 
 	.pages {
@@ -219,6 +260,14 @@ ul {
 	.fa-rss:hover {
 		color: $rss;
 	}
+
+	.fa-envelope-o:hover {
+		color: $envelope;
+	}
+
+	.fa-telegram:hover {
+		color: $telegram;
+	}
 }
 
 /* Index */
@@ -257,7 +306,7 @@ ul {
 
 	.author-header {
 		font-family: 'Montserrat', sans-serif;
-		color: $light-blue;
+		color: var(--text-rev-blue);
 		margin-top: 0px;
 		padding-top: 15px;
 		font-size: 30px;
@@ -306,7 +355,7 @@ ul {
 
 		h2 {
 			margin-bottom: 30px;
-			color: $light-blue;
+			color: var(--text-rev-blue);
 			font-size: 26px;
 		}
 
@@ -319,14 +368,14 @@ ul {
 				font-size: 24px;
 
 				a:hover {
-					color: $light-medium;
+					color: var(--text-plus);
 				}
 
 				small {
 					font-size: 14px;
 					margin-top: -10px;
 					padding-top: 0px;
-					color: $light-medium;
+					color: var(--text-plus);
 				}
 
 			}
@@ -341,12 +390,12 @@ ul {
 		}
 
 		a, a:active {
-			color: $white;
+			color: var(--text);
 			white-space: nowrap;
 		}
 
 		a:hover {
-			color: $light-blue;
+			color: var(--text-rev-blue);
 		}
 	}
 
@@ -357,7 +406,7 @@ ul {
 
 	.links {
 		a, a:active {
-			color: #FFFFFF;
+			color: var(--text);
 		}
 	}
 
@@ -369,11 +418,11 @@ ul {
 		bottom: 0px;
 
 		a, a:active {
-			color: #FFFFFF;
+			color: var(--text);
 		}
 
 		a:hover {
-			color: $light-blue;
+			color: var(--text-rev-blue);
 		}
 
 		ul {
@@ -469,14 +518,14 @@ ul {
 
 	.menu {
 
-		background-color: $dark-blue;
+		background-color: var(--background);
 
 		a, a:active {
-			color: $white;
+			color: var(--text);
 		}
 
 		a:hover {
-			color: $light-blue;
+			color: var(--text-rev-blue);
 		}
 
 		h4 {
@@ -496,7 +545,7 @@ ul {
 			font-size: 16px;
 
 			a {
-				color: $white;
+				color: var(--text);
 			}
 		}
 
@@ -567,6 +616,17 @@ ul {
 			padding-top: 10px;
 			padding-bottom: 10px;
 
+			.quote {
+				font-style: italic;
+				text-align: right;
+				font-size: 17px;
+				p {
+					margin-bottom: 0px;
+					margin-left: 5em;
+				}
+				margin-bottom: 30px;
+			}
+
 			@media (width: $screen-sm-min) {
 				font-size: 24px;
 				padding-left: 30px;
@@ -588,6 +648,8 @@ ul {
 			}
 
 			ul {
+				margin-top: -30px;
+				margin-bottom: 30px;
 				list-style-type: disc;
 			}
 
@@ -600,8 +662,8 @@ ul {
 				width: 100%;
 		    	margin-left: -15px;
 				padding-right: 10px;
-				background-color: $darker;
-				color: white;
+				background-color: var(--background-plus);
+				color: var(--text);
 				box-sizing: content-box;
 				border: none;
 				font-size: 28px;
@@ -620,7 +682,7 @@ ul {
 
 				:before {
     			font-family: "Times New Roman";
-					color: $light-medium;
+					color: var(--text-plus);
 			    content: "“";
 			    position: absolute;
 			    top: 15px;
@@ -654,8 +716,8 @@ ul {
 				pre {
 					width: 100%;
 					font-family: 'Anonymous Pro';
-					background-color: $darker;
-					color: $white;
+					background-color: var(--background-plus);
+					color: var(--text);
 					font-size: 12px;
 					border: none;
 					padding-left: 15px;
@@ -681,8 +743,8 @@ ul {
 				code {
 					font-family: 'Anonymous Pro';
 					font-size: 15px;
-					background-color: $darker;
-					color: $white;
+					background-color: var(--background-plus);
+					color: var(--text);
 					padding: 0.5em;
 					vertical-align: middle;
 				}
@@ -695,11 +757,11 @@ ul {
 				text-align: center;
 
 				a, a:active {
-					color: $white;
+					color: var(--text);
 				}
 
 				a:hover {
-					color: $light-blue;
+					color: var(--text-rev-blue);
 				}
 
 			}
@@ -737,16 +799,16 @@ ul {
 		margin-bottom: 20px;
 
 		a {
-			color: $white;
+			color: var(--text);
 			font-size: 18px;
 			width: auto;
 			padding: 10px 20px;
-			background-color: $darker;
+			background-color: var(--background-plus);
 			box-shadow: 0px 0px 0px 0px, 0px 6px 12px rgba(0, 0, 0, 0.2);
 		}
 
 		a:hover {
-			color: $dark-blue;
+			color: var(--text-blue);
 		}
 	}
 
@@ -760,11 +822,11 @@ ul {
 		}
 
 		a {
-			color: $white;
+			color: var(--text);
 		}
 
 		a:hover {
-			color: $light;
+			color: var(--text-plus);
 		}
 	}
 
@@ -776,11 +838,11 @@ ul {
 		width: 50%;
 
 		a {
-			color: $white;
+			color: var(--text);
 		}
 
 		a:hover {
-			color: $light;
+			color: var(--text-plus);
 		}
 	}
 
@@ -795,7 +857,7 @@ ul {
 	}
 
 	.date {
-		color: $light-medium;
+		color: var(--text-plus);
 	}
 }
 
@@ -809,7 +871,7 @@ ul {
 		margin-top: 30px;
 
 		a {
-			color: $light-blue;
+			color: var(--text-rev-blue);
 		}
 	}
 
@@ -842,7 +904,7 @@ ul {
 	}
 
 	div {
-		color: $light-medium;
+		color: var(--text-plus);
 		text-align: center;
 		margin-top: 20px;
 		margin-bottom: 20px;
@@ -852,33 +914,33 @@ ul {
 .btn-categories {
 	background-color: $light-blue;
 	border-color: $light-blue;
-	color: $white;
+	color: var(--text);
 	&:hover {
-		background-color: $dark-blue;
+		background-color: var(--background-blue);
 		border-color: $dark-blue;
-		color: $white;
+		color: var(--text);
 	}
 	&:active {
-		background-color: $dark-blue;
+		background-color: var(--background-blue);
 		border-color: $dark-blue;
-		color: $white;
+		color: var(--text);
 	}
 	&:focus {
-		background-color: $dark-blue;
+		background-color: var(--background-blue);
 		border-color: $dark-blue;
-		color: $white;
+		color: var(--text);
 	}
 }
 
 .dropdown-menu {
 	background-color: $light-blue;
-	color: $white;
+	color: var(--text);
 	> li > a {
 		background-color: $light-blue;
-		color: $white;
+		color: var(--text);
 		&:hover {
-			background-color: $dark-blue;
-			color: $white;
+			background-color: var(--background-blue);
+			color: var(--text);
 		}
 	}
 }

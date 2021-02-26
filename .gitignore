@@ -32,3 +32,5 @@ Gemfile.lock
 
 #Jekyll cache
 .jekyll-cache
+
+_pending_posts

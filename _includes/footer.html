@@ -14,12 +14,26 @@
 <script>hljs.initHighlightingOnLoad();</script>
 <script type="text/javascript">
    $(document).ready(function() {
+      if(localStorage.getItem("colour-mode") === "light") {
+        document.documentElement.setAttribute("colour-mode", "light");
+      } else {
+        document.documentElement.setAttribute("colour-mode", "dark");
+      }
       $("#my-menu").mmenu().on( "closed.mm", function() {
             $(".menu-button").show();
          });
       $(".menu-button").click(function() {
         $(".menu-button").hide();
         $("#my-menu").trigger("open.mm");
+      });
+      $("#theme-button").on("click", function() {
+        if(document.documentElement.getAttribute("colour-mode") === "light") {
+          document.documentElement.setAttribute("colour-mode", "dark");
+          localStorage.setItem("colour-mode", "dark");
+        } else {
+          document.documentElement.setAttribute("colour-mode", "light");
+          localStorage.setItem("colour-mode", "light");
+        }
       });
    });
 </script>

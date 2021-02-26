@@ -27,21 +27,7 @@ layout: default
 
       <div class="author">
         <small><i>
-          {% if page.author %}
-          by
-          <span itemprop="author">
-            {% if site.google_plus_link %}
-              <a rel="author" href="{{ site.google_plus_link }}">
-            {% endif %}
-            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-              <span itemprop="name">{{ page.author }}</span>
-            </span>
-            {% if site.google_plus_link %}
-              </a>
-            {% endif %}
-          </span>
-          {% endif %}
-          on <span itemprop="datePublished" content="2014-08-28">{{ page.date | date: "%B %-d, %Y" }}</span>
+          Published on <span itemprop="datePublished" content="2014-08-28">{{ page.date | date: "%B %-d, %Y" }}</span>
           {% if page.categories != empty %} under {% for category in page.categories limit:1 %}{{ category }}{% endfor %}{% endif %}
         </i></small>
       </div>
@@ -54,6 +40,21 @@ layout: default
 
       <div class="content-panel content">
 
+
+        {% if page.quote %}
+          <div class="quote">
+            <p>"{{ page.quote }}"</p>
+            {% if page.quote-link %}
+              <a href="{{ page.quote-link }}">
+            {% endif %}
+            <p>- {{ page.quote-author }}</p>
+            {% if page.quote-link %}
+              </a>
+            {% endif %}
+          </div>
+        {% endif %}
+
+        <span itemprop="articleBody">{{ content }}</span>
         {% if page.series %}
           This post is part of the series '{{ page.series }}':
           <ol class="series">
@@ -75,8 +76,6 @@ layout: default
           {% endfor %}
           </ol>
         {% endif %}
-
-        <span itemprop="articleBody">{{ content }}</span>
 
         {% if page.series %}
           {% if seriesnext %}
